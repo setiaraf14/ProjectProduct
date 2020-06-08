@@ -39,8 +39,16 @@ class ProductController extends Controller
     {
         //
         $validateData=$request->validate([
-            ''=>'',
+            'nama_product'=>'required|min:3|max:25',
+            'jenis_product'=>'required|in:x,x',
+            'keluar_product'=>'required',
+            'masuk_product'=>'required',
+            'nama_pengelola'=>'required|min:3|max:25',
+            'nik_pengelola'=>'required|max:4',
+            'alamat_pengelola'=>''
         ]);
+        Product::create($validateData);
+        return view('');
     }
 
     /**
@@ -78,8 +86,15 @@ class ProductController extends Controller
     {
         //
         $validateData=$request->validate([
-            ''=>'',
+            'nama_product'=>'required|min:3|max:25',
+            'jenis_product'=>'required|in:x,x',
+            'keluar_product'=>'required',
+            'masuk_product'=>'required',
+            'nama_pengelola'=>'required|min:3|max:25',
+            'nik_pengelola'=>'required|max:4',
+            'alamat_pengelola'=>''
         ]);
+        $product->update($validateData);
     }
 
     /**
