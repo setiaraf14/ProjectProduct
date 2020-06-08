@@ -15,6 +15,7 @@ class ProductController extends Controller
     public function index()
     {
         //
+        return view('pages_product.index');
     }
 
     /**
@@ -25,6 +26,7 @@ class ProductController extends Controller
     public function create()
     {
         //
+        return view('pages_product.create');
     }
 
     /**
@@ -36,6 +38,9 @@ class ProductController extends Controller
     public function store(Request $request)
     {
         //
+        $validateData=$request->validate([
+            ''=>'',
+        ]);
     }
 
     /**
@@ -47,6 +52,7 @@ class ProductController extends Controller
     public function show(Product $product)
     {
         //
+        return view('pages_product.show',compact('product'));
     }
 
     /**
@@ -58,6 +64,7 @@ class ProductController extends Controller
     public function edit(Product $product)
     {
         //
+        return view('pages_product.edit',compact('product'));
     }
 
     /**
@@ -70,6 +77,9 @@ class ProductController extends Controller
     public function update(Request $request, Product $product)
     {
         //
+        $validateData=$request->validate([
+            ''=>'',
+        ]);
     }
 
     /**
@@ -81,5 +91,6 @@ class ProductController extends Controller
     public function destroy(Product $product)
     {
         //
+        $product->delete();
     }
 }
