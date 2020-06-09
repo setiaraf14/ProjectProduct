@@ -10,7 +10,7 @@
                 <a href="#" class="list-group-item list-group-item-action active">
                     Nama Produk :  {{ $product->nama_produk }}
                 </a>
-                <a href="#" class="list-group-item list-group-item-action">Jenis Produk : {{ $product->jenis_produk }}</a>
+                <a href="#" class="list-group-item list-group-item-action">Jenis Produk : {{ $product->jenis_produk=='MR'?'Makanan Ringan':'Makanan Berat' }}</a>
                 <a href="#" class="list-group-item list-group-item-action">Tanggal Keluar Produk : {{ $product->keluar_produk }}</a>
                 <a href="#" class="list-group-item list-group-item-action">Tanggal Masuk Produk : {{ $product->masuk_produk }}</a>
                 <a href="#" class="list-group-item list-group-item-action">Nama Pengelola : {{ $product->nama_pengelola }}</a>

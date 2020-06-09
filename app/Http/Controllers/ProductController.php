@@ -15,7 +15,8 @@ class ProductController extends Controller
     public function index()
     {
         //
-        return view('pages_product.index');
+        $product=Product::all();
+        return view('pages_product.index',compact('product'));
     }
 
     /**
@@ -39,16 +40,19 @@ class ProductController extends Controller
     {
         //
         $validateData=$request->validate([
-            'nama_product'=>'required|min:3|max:25',
-            'jenis_product'=>'required|in:x,x',
-            'keluar_product'=>'required',
-            'masuk_product'=>'required',
+            'nama_produk'=>'required|min:3|max:25',
+            'jenis_produk'=>'required|in:MR,MB',
+            'keluar_produk'=>'required',
+            'masuk_produk'=>'required',
             'nama_pengelola'=>'required|min:3|max:25',
             'nik_pengelola'=>'required|max:4',
             'alamat_pengelola'=>''
         ]);
         Product::create($validateData);
-        return view('');
+        return redirect()->route('product.index')->with([
+            'alert'=>'alert alert-success',
+            'Pesan'=>"Data {$validateData['nama_produk']} Berhasil Ditambah"
+        ]);
     }
 
     /**
@@ -86,15 +90,19 @@ class ProductController extends Controller
     {
         //
         $validateData=$request->validate([
-            'nama_product'=>'required|min:3|max:25',
-            'jenis_product'=>'required|in:x,x',
-            'keluar_product'=>'required',
-            'masuk_product'=>'required',
+            'nama_produk'=>'required|min:3|max:25',
+            'jenis_produk'=>'required|in:MR,MB',
+            'keluar_produk'=>'required',
+            'masuk_produk'=>'required',
             'nama_pengelola'=>'required|min:3|max:25',
             'nik_pengelola'=>'required|max:4',
             'alamat_pengelola'=>''
         ]);
         $product->update($validateData);
+        return redirect()->route('product.index')->with([
+            'alert'=>'alert alert-warning',
+            'Pesan'=>"Data {$validateData['nama_produk']} Berhasil Diubah"
+        ]);
     }
 
     /**
@@ -107,5 +115,9 @@ class ProductController extends Controller
     {
         //
         $product->delete();
+        return redirect()->route('product.index')->with([
+            'alert'=>'alert alert-danger',
+            'Pesan'=>"Data {$product->nama_produk} Berhasil Dihapus"
+        ]);
     }
 }

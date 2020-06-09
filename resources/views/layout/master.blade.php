@@ -73,10 +73,10 @@
                 <div id="collapsePages" class="collapse" aria-labelledby="headingPages" data-parent="#accordionSidebar">
                     <div class="bg-white py-2 collapse-inner rounded">
                         <h6 class="collapse-header">Data Table:</h6>
-                        <a class="collapse-item" href="login.html">Show Data Table</a>
+                        <a class="collapse-item" href="{{route('product.index')}}">Show Data Table</a>
                         <div class="collapse-divider"></div>
                         <h6 class="collapse-header">Tambah Data:</h6>
-                        <a class="collapse-item" href="404.html">Create Data</a>
+                        <a class="collapse-item" href="{{route('product.create')}}">Create Data</a>
                     </div>
                 </div>
             </li>

@@ -3,7 +3,7 @@
 @section('section','Laman Olah Data')
 @section('title','Ubah Data')
 @section('content')
-   {{-- <form action="{{ route('product.update ', ['product' => $product->id_produk]) }}" method="POST"> --}}
+   <form action="{{ route('product.update', ['product' => $product->id_produk]) }}" method="POST">
             @method('PATCH')
             @csrf
             <div class="form-group">
@@ -18,11 +18,11 @@
                 <label for="jenis_produk">Jenis Produk</label>
                 <div class="form-check form-check-inline">
                     <input type="radio" class="form-check-input" name="jenis_produk" id="makanan_ringan" value="MR" {{ (old('jenis_produk') ?? $product->jenis_produk ) == 'MR' ? 'checked' : ' ' }}>
-                    <label for="Makanan Ringan" class="form-checked-label">Makanan Ringan</label>
+                    <label for="makanan_ringan" class="form-checked-label">Makanan Ringan</label>
                 </div>
                 <div class="form-check form-check-inline">
                     <input type="radio" class="form-check-input" name="jenis_produk" id="makanan_berat" value="MB" {{ (old('jenis_produk') ?? $product->jenis_produk ) == 'MB' ? 'checked' : ' ' }}>
-                    <label for="perempuan" class="form-checked-label">Makanan Berat</label>
+                    <label for="makanan_berat" class="form-checked-label">Makanan Berat</label>
                 </div>
                 @error('jenis_produk')
                     <div class="alert alert-danger">{{ $message }}</div>
